@@ -1,0 +1,7 @@
+Regarding scheduling notebook, I found few ways to do it.
+- Locally -- In windows, it is possible to automate and schedule a task by using task scheduler. I tried it and it works. But, the problem is that the machine must be on for it to be complete
+          -- Similarly, in linux it is possible to use cron command to automate the task
+          
+- Apache Airflow -- It is possible to scheudle task as mentioned in the task using Airflow, but it would require another tool called Papermill to be able to work with jupyter notebook. If it is just a python file, it is possible to work without papermill. Unfortunately, I was unable to install airflow, as it seems it is focused on linux based operating system and I am currently using windows. In addition, there was possibility to use docker, but I have little idea about docker at this point of time.
+
+- AWS Sagemaker -- AWS have this cool tool, sagemaker, where we can create the jupyter notebook as similar to creating on local machine. I created it and ran the file but I was not able to set up the postgresql to run on aws. As I am storing the data to the postgresql locally, it was not able to access through aws. RDS from aws was the solution to it, but as I went to setup for RDS, it calculated some dollar amount and I was sceptical to use. The main idea is to combile sagemaker with lambda to trigger the event and cloudwwatch to schedule the trigger for the sagemaker to run the jupyter notebook on given time.
